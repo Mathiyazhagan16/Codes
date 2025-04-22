@@ -1,0 +1,108 @@
+#include<stdio.h>
+void subsequence(char * seq,char * str,int len,int ind)
+{
+    if(ind==len)
+    {
+        return;
+    }
+    for(int i = ind; i < len; i++) 
+    {
+        seq[ind]=str[i];
+        printf("%s\n",seq);
+        subsequence(seq,str,len,ind+1);
+        seq[ind]='\0';
+    }
+}
+int main()
+{
+    int len;
+    char str[1000],seq[1000]="\0";
+    scanf("%s%n",str,&len);
+    subsequence(seq,str,len,0);
+}
+/*
+a
+ab
+abc
+abcd
+abd
+ac
+acd
+ad
+b
+bc
+bcd
+bd
+c
+cd
+d
+*/
+/*
+
+abcd
+a
+ab
+abc
+abcd
+abd
+abdd
+ac
+acc
+accd
+acd
+acdd
+ad
+adc
+adcd
+add
+addd
+b
+bb
+bbc
+bbcd
+bbd
+bbdd
+bc
+bcc
+bccd
+bcd
+bcdd
+bd
+bdc
+bdcd
+bdd
+bddd
+c
+cb
+cbc
+cbcd
+cbd
+cbdd
+cc
+ccc
+cccd
+ccd
+ccdd
+cd
+cdc
+cdcd
+cdd
+cddd
+d
+db
+dbc
+dbcd
+dbd
+dbdd
+dc
+dcc
+dccd
+dcd
+dcdd
+dd
+ddc
+ddcd
+ddd
+dddd
+
+*/
