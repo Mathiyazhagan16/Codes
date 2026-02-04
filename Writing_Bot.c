@@ -34,7 +34,17 @@
 // On one line, print three items viz current activity performed (READ or WRITE), page number and line number . All three items should be determined by space
 
 
+sample input:
+100 10 400 6 8 4 14 5
 
+sample output:
+WRITE 13 2
+
+sample input:
+400 20 225 15 10 10 150 
+
+sample output:
+READ 75 20
 
 
 //                     READ                   125       145 WRITE
@@ -45,8 +55,6 @@
 
 
 // 145 - 125 = 20 * 4 = 80 -> 13(6) + 2
-
-
 
 
 #include<stdio.h>
@@ -63,8 +71,8 @@ int main()
     int readtime = page1 * line1 / read;
     if( readtime < giventime )
     {
-        int page_count = (sec-read_t)*write/line2;
-        int line_count = (sec-read_t)*write%line2;
+        int page_count = (giventime-readtime)*write/line2;
+        int line_count = (giventime-readtime)*write%line2;
         printf("WRITE %d ",page_count);
         if(line_count==0)
             printf("%d",line2);
@@ -73,8 +81,8 @@ int main()
     }
     else 
     {
-        int page_count = (sec*read)/line1;
-        int line_count = (sec*read)%line1;
+        int page_count = (giventime*read)/line1;
+        int line_count = (giventime*read)%line1;
         printf("READ %d ",page_count);
         if(line_count==0)
             printf("%d",line1);
@@ -83,4 +91,6 @@ int main()
     }
     return 0;
 }
+
+
 
