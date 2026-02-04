@@ -48,4 +48,5 @@ int main()
     color[0]=0;
     if(!solve(Graph,color,m,0)) printf("Not Possible");
     return 0;
+
 }
