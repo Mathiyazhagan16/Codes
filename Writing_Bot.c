@@ -58,25 +58,29 @@ int main()
     int line2;
     int read;
     int write;
-    int sec;
-    scanf("%d%d%d%d%d%d%d",&page1,&line1,&page2,&line2,&read,&write,&sec);
-    int read_t = page1 * line1 / read;
-    if( read_t < sec )
+    int giventime;
+    scanf("%d%d%d%d%d%d%d",&page1,&line1,&page2,&line2,&read,&write,&giventime);
+    int readtime = page1 * line1 / read;
+    if( readtime < giventime )
     {
-        printf("WRITE %d ",(sec-read_t)*write/line2);
-        if(((sec-read_t)*write%line2)==0)
-        {
+        int page_count = (sec-read_t)*write/line2;
+        int line_count = (sec-read_t)*write%line2;
+        printf("WRITE %d ",page_count);
+        if(line_count==0)
             printf("%d",line2);
-        }
         else
-        {
-            printf("%d",(sec-read_t)*write%line2);
-        }
+            printf("%d",line_count);
     }
     else 
     {
-        printf("READ %d ",(sec*read)/line1);
-        printf("%d",(((sec*read)/line1)==0)?line1:(sec*read)%line1);
+        int page_count = (sec*read)/line1;
+        int line_count = (sec*read)%line1;
+        printf("READ %d ",page_count);
+        if(line_count==0)
+            printf("%d",line1);
+        else
+            printf("%d",line_count);
     }
     return 0;
 }
+
