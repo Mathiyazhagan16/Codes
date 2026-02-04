@@ -1,0 +1,222 @@
+/*
+
+King Placement 
+Problem Description 
+This is a typical chess game where your opponent first places random number of Knights, Rooks, Bishop and 
+Queens on an N*N chess board and then you have to place your king safely on chess board 
+such that it should not be under attack by any piece. 
+Note: if you don't know how to play chess and how chess pieces moves, please refer below link (you can concentrate only on 
+how the above mentioned pieces moves). 
+https://www.instructables.com/id/Playing-Chess/ 
+Given an N*N chessboard with K number of Knights, R number of Rooks, B number of Bishops and Q number of queens. Your 
+task is to find out number of squares on the chess board such that your King is not checked by any of your opponents pieces. 
+Constraints 
+2<=N<=50 
+0<=K+R+B+Q <=N*N 
+0<=i, j <=N-1 
+Input Format 
+First line provides an integer N 
+Next line contains K, no. of Knights. Next K lines provide 2 space separated integers denoting the rank and the file of the Knights 
+(i,j) 
+Next line contains R, no. of Rooks. Next R lines provide 2 space separated integers denoting the rank and the file of the Rooks 
+(i,j) 
+Next line contains B, no. of Bishops. Next B lines provide 2 space separated integers denoting the rank and the file of the Bishops 
+(i,j) 
+Next line contains Q, no. of Queens. Next Q lines provide 2 space separated integers denoting the rank and the file of the Queens 
+(i,j) 
+Output 
+Number of squares where King can be placed safely. 
+Test Case 
+Explanation 
+Example 1 
+Input 
+4 
+2 
+0 0 
+1 1 
+1 
+2 2 
+0 
+1 
+3 3 
+Output 
+2 
+Explanation
+refer image
+The image shows the arrangement of the pieces. After the placement of all the Pieces as per the input chess 
+board looks like the image above, 
+You can place King in 2 places safely. i.e., (0,1) and (1,0) 
+Example 2 
+Input 
+8 
+4 
+2 6 
+3 2 
+5 6 
+7 7 
+4 
+2 2 
+4 6 
+6 4 
+7 5 
+4 
+0 4 
+1 1 
+1 6 
+5 1 
+2 
+3 5 
+6 0 
+Output 
+5 
+Explanation
+refer image
+
+
+*/
+
+
+#include<stdio.h>
+#include<stdlib.h>
+int display(int N , char ** board)
+{
+    int count = 0;
+    for(int row = 0 ; row < N ; row++)
+    {
+        for(int col = 0 ; col < N ; col++)
+        {
+            if(board[row][col] == 0)
+            {
+                printf("✔️ ");
+                count++;
+            }
+            else
+                printf("%c ",board[row][col]);
+        }
+        printf("\n");
+    }
+    return count;
+}
+int isSafe(int N , char ** board , int next_row, int next_col)
+{
+    return !(board[next_row][next_col] == 'Q' || board[next_row][next_col] == 'R' || board[next_row][next_col] == 'K' || board[next_row][next_col] == 'B');
+}
+void fillKplace(int N , char ** board , int row, int col)
+{
+    static int Horizontal[8] = { 2, 2,-2,-2, 1, 1,-1,-1 };
+    static int Vertical[8] = { 1,-1, 1,-1, 2,-2, 2,-2 };
+    for (int k = 0; k < 8; k++)
+    {
+        int next_row = row + Horizontal[k];
+        int next_col = col + Vertical[k];
+        if (next_row >= 0 && next_row < N && next_col >= 0 && next_col < N && isSafe(N , board , next_row , next_col) == 1)
+            board[next_row][next_col] = '-';
+    }
+}
+void fillRplace(int N , char ** board , int row, int col)
+{
+    int Horizontal[4] = {1, -1, 0, 0};
+    int Vertical[4] = {0, 0, 1, -1};
+    for (int d = 0; d < 4; d++)
+    {
+        int next_row = row + Horizontal[d];
+        int next_col = col + Vertical[d];
+        while (next_row >= 0 && next_row < N && next_col >= 0 && next_col < N && isSafe(N , board , next_row , next_col) == 1)
+        {
+            board[next_row][next_col] = '-';
+            next_row += Horizontal[d];
+            next_col += Vertical[d];
+        }
+    }
+}
+void fillBplace(int N , char ** board , int row, int col)
+{
+    int Horizontal[4] = {1, 1,-1,-1};
+    int Vertical[4] = {1,-1, 1,-1};
+
+    for (int d = 0; d < 4; d++)
+    {
+        int next_row = row + Horizontal[d];
+        int next_col = col + Vertical[d];
+        while (next_row >= 0 && next_row < N && next_col >= 0 && next_col < N && isSafe(N , board , next_row , next_col) == 1)
+        {
+            board[next_row][next_col] = '-';
+            next_row += Horizontal[d];
+            next_col += Vertical[d];
+        }
+    }
+}
+void fillQplace(int N , char ** board , int row, int col)
+{
+    fillRplace(N , board , row , col);
+    fillBplace(N , board , row , col);
+}
+void Solve(int N , char ** board)
+{
+    for(int row = 0 ; row < N ; row++)
+    {
+        for(int col = 0 ; col < N ; col++)
+        {
+            switch(board[row][col])
+            {
+                case 'K':
+                    fillKplace(N , board , row , col);
+                    break;
+                case 'R':
+                    fillRplace(N , board , row , col);
+                    break;
+                case 'B':
+                    fillBplace(N , board , row , col);
+                    break;
+                case 'Q':
+                    fillQplace(N , board , row , col);
+                    break;
+            }
+        }
+    }
+}
+int main(void)
+{
+    int N;
+    int row = 0;
+    int col = 0;
+    int count = 0;
+    scanf("%d",&N);
+    char ** board = (char **)calloc(N,sizeof(char*));
+    for(int row = 0 ; row < N ; row++)
+    {
+        board[row] = (char *)calloc(N,sizeof(char));
+    }
+    int knight;
+    scanf("%d",&knight);
+    for(int itr = 1 ; itr <= knight ; itr++)
+    {
+        scanf("%d %d",&row,&col);
+        board[row][col] = 'K';
+    }
+    int rook;
+    scanf("%d",&rook);
+    for(int itr = 1 ; itr <= rook ; itr++)
+    {
+        scanf("%d %d",&row,&col);
+        board[row][col] = 'R';
+    }
+    int bishop;
+    scanf("%d",&bishop);
+    for(int itr = 1 ; itr <= bishop ; itr++)
+    {
+        scanf("%d %d",&row,&col);
+        board[row][col] = 'B';
+    }
+    int queen;
+    scanf("%d",&queen);
+    for(int itr = 1 ; itr <= queen ; itr++)
+    {
+        scanf("%d %d",&row,&col);
+        board[row][col] = 'Q';
+    }
+    Solve(N , board);
+    count = display(N , board);
+    printf("%d\n",count);
+    return 0;
+}
