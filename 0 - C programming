@@ -310,14 +310,249 @@ main() serves to:
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+return EXIT_SUCCESS;
+
+return is used to:
+    * Send a value back to the calling function
+    * Terminate the execution of the current function
+    * Destroy the current stack frame
+    * Once return executes, control immediately leaves the function.
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Print Format
+
+printf("How to print",what to print);
+		How to print:
+    -> Text -> print as it is
+		-> Format specifier
+    	->%i - integer - (010 - 8 - octal), (0x10 - 16 - Hexa decimal) , (10 - 10 - Decimal)
+    	->%hi - short integer
+    	->%d - decimal
+    	->%hd - short decimal
+    	->%ld - long decimal
+    	->%lld - ling long decimal
+    	->%u - unsigned
+    	->%lu - long unsigned
+    	->%llu - long long unsigned
+    	->%o - Octal
+    	->%x - hexa decimal
+    	->%X - HEXA DECIMAL
+    	->%c - char
+    	->%S - string
+    	->%f - float
+    	->%lf - long float(Double)
+    	->%Lf - long double
+    	->%p - pointer -> address
+    	->%g - ground - trailing zeros remove - (123.301200 - 123.3012)
+    	->%n - reads nothing but copy data from scanf
+    	->%e - exponential
+      
+      ->escape sequesce "" \ %
+      
+      ->width and precision num , 0 , + , - , * , . ,Example , %5d , %05d , %-5d , %+d , %*d , %.3f(. only for float)
 
 
+Sample code 
 
+#include <stdio.h>
 
+int main() {
 
+    int a = 10, b = 010, c = 0x10;
+    short s = 100;
+    long l = 100000;
+    long long ll = 123456789;
 
+    unsigned u = 50;
+    char ch = 'A';
+    char str[] = "C Programming";
 
+    float f = 123.301200;
+    double d = 456.789;
+    long double ld = 789.12345;
 
+    int count;
 
+    printf("---- Integer formats ----\n");
+    printf("%%d = %d\n", a);
+    printf("%%i = %i %i %i\n", a, b, c);
+    printf("%%hd = %hd\n", s);
+    printf("%%ld = %ld\n", l);
+    printf("%%lld = %lld\n", ll);
+    printf("%%u = %u\n", u);
+    printf("%%o = %o\n", a);
+    printf("%%x = %x\n", a);
+    printf("%%X = %X\n", a);
+
+    printf("\n---- Character & String ----\n");
+    printf("%%c = %c\n", ch);
+    printf("%%s = %s\n", str);
+
+    printf("\n---- Floating point ----\n");
+    printf("%%f = %f\n", f);
+    printf("%%.3f = %.3f\n", f);
+    printf("%%lf = %lf\n", d);
+    printf("%%Lf = %Lf\n", ld);
+    printf("%%e = %e\n", d);
+    printf("%%g = %g\n", f);
+
+    printf("\n---- Width & Flags ----\n");
+    printf("|%5d|\n", a);
+    printf("|%05d|\n", a);
+    printf("|%-5d|\n", a);
+    printf("|%+d|\n", a);
+    printf("|%*d|\n", 6, a);
+
+    printf("\n---- Pointer ----\n");
+    printf("%%p = %p\n", &a);
+
+    printf("\n---- Escape sequences ----\n");
+    printf("New line\\n\nTab\\tDone\n");
+    printf("Double quote: \"Hello\"\n");
+    printf("Percent sign: %%\n");
+
+    printf("Hello World%n\n", &count);
+    printf("Characters printed before %%n = %d\n", count);
+
+    return 0;
+}
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Scan format 
+
+scanf("How to read" , where to store);
+		How to read:
+    	similar to printf
+    where to store:
+    	Address of a variable -> &number
           
-                                 
+#include <stdio.h>
+
+int main() {
+
+    int a;
+    float f;
+    double d;
+    char ch;
+    char name[20];
+
+    printf("Enter integer: ");
+    scanf("%d", &a);
+
+    printf("Enter float: ");
+    scanf("%f", &f);
+
+    printf("Enter double: ");
+    scanf("%lf", &d);
+
+    printf("Enter character: ");
+    scanf(" %c", &ch);   // space ignores newline
+
+    printf("Enter name: ");
+    scanf("%19s", name);
+
+    printf("\n--- Output ---\n");
+    printf("Integer = %d\n", a);
+    printf("Float = %f\n", f);
+    printf("Double = %lf\n", d);
+    printf("Character = %c\n", ch);
+    printf("Name = %s\n", name);
+
+    return 0;
+}
+          
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------       
+          
+Data types 
+
+Note:- Depents on compiler and version data types size may change
+
+Data Types
+│
+├── Primitive
+│   ├── Integral
+│   │   ├── char          (1 Byte  ), unsigned char          
+│   │   ├── short int     (2 Bytes ), unsigned short int      
+│   │   ├── int           (4 Bytes ), unsigned int          
+│   │   ├── long int      (8 Bytes ), unsigned long int       
+│   │   └── long long int (8 Bytes ), unsigned long long int
+│   └── Floating Point
+│       ├── float        (4  Bytes )
+│       ├── double       (8  Bytes ) 
+│       └── long double  (16 Bytes )
+│
+├── Derived
+│   ├── arrays
+│   └── pointers
+│
+└── User Defined
+    ├── struct
+    ├── union
+    └── enum
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------          
+          
+Variables 
+
+Variable – A variable is a named memory location used to store data that can change during program execution.
+    * Local Variable – A variable declared inside a function or block and accessible only within it.
+    * Global Variable – A variable declared outside all functions and accessible throughout the program.
+    * Static Variable – A variable that retains its value between function calls and exists for the entire program lifetime.
+    * Automatic Variable – A local variable that is created and destroyed automatically with function execution.
+    * Register Variable – A variable stored in a CPU register for faster access and whose address cannot be accessed.
+    * Scope – The region of the program where a variable can be accessed.
+    * Lifetime – The duration for which a variable exists in memory.
+    
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+operators
+
+Operators – Symbols that perform operations on data values and variables in C.
+
+    * Arithmetic         (+ - * / %                      ) – Used to perform mathematical calculations.
+    * Assignment         (=                              ) – Used to assign a value to a variable.
+    * Compound Assignment(+= -= *= /= %= &= |= ^= <<= >>=) – Used to combine an operation with assignment in a single step.
+    * Relational         (== != < > <= >=                ) – Used to compare two values and return true or false.
+    * Logical            (&& || !                        ) – Used to combine or negate conditions in decision making.
+    * Bitwise            (& | ^ ~                        ) – Used to perform operations at the bit level.
+    * Shift              (<< >>                          ) – Used to shift bits left or right by a specified number of positions.
+    * Unary              (++ --                          ) – Used to increment or decrement a variable by one (pre or post).
+    * Ternary            (?:                             ) – Used as a compact conditional expression.
+    * Special            (sizeof , & , *                 ) – Used to get memory size, address of a variable, and value at an address.
+    * Boolean            (true , false                   ) – Used to represent logical truth values in C.
+    
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+control statements:
+
+Control Statements
+│
+├── Conditional
+│   ├── if
+│   ├── if else
+│   ├── else if ladder
+│   ├── nested if
+│   └── switch
+│
+├── Looping
+│   ├── for
+│   ├── while
+│   └── do while
+│
+└── Jump
+    ├── break
+    ├── continue
+    ├── goto
+    └── return
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
