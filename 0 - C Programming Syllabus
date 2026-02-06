@@ -1,0 +1,371 @@
+number systems and conversions
+	Decimal(10)         -> 0 1 2 3 4 5 6 7 8 9 
+	Binary(2)           -> 0 1
+	Octal(8)            -> 0 1 2 3 4 5 6 7
+	Hexa Decimal (6+10) -> 0 1 2 3 4 5 6 7 8 9 A B C D E F
+header file -> #include<stdio.h> 
+main function 
+memory allocation
+	Heap -> secondary memory allocation
+	stack-> primary memory allocation
+	code -> bytecode file
+	initialized data -> static , extern(global)
+	uninitialized data -> static , extern(global)
+return 
+printf("How to print",what to print);
+		How to print:
+    -> Text -> print as it is
+		-> Format specifier
+    	->%i - integer - (010 - 8 - octal), (0x10 - 16 - Hexa decimal) , (10 - 10 - Decimal)
+    	->%hi - short integer
+    	->%d - decimal
+    	->%hd - short decimal
+    	->%ld - long decimal
+    	->%lld - ling long decimal
+    	->%u - unsigned
+    	->%lu - long unsigned
+    	->%llu - long long unsigned
+    	->%o - Octal
+    	->%x - hexa decimal
+    	->%X - HEXA DECIMAL
+    	->%c - char
+    	->%S - string
+    	->%f - float
+    	->%lf - long float(Double)
+    	->%Lf - long double
+    	->%p - pointer -> address
+    	->%g - ground - trailing zeros remove - (123.301200 - 123.3012)
+    	->%n - reads nothing but copy data from scanf
+    	->%e - exponential
+      
+      ->escape sequesce "" \ %
+      
+      ->width and precision num , 0 , + , - , * , . ,Example , %5d , %05d , %-5d , %+d , %*d , %.3f(. only for float)
+      
+    what to print:
+    	number
+      expression
+      variables
+    
+scanf("How to read" , where to store);
+		How to read:
+    	similar to printf
+    where to store:
+    	Address of a variable -> &number
+      
+data types 
+	Data types
+	Primitive
+		integral
+			short int (2) , unsigned short int (2) - 2^16 
+			int (4) , unsigned int (4) 
+			long int (4) , unsigned long int (4)
+			long long int (8) , unsigned long long int (8)
+			char(1) , unsigned char (1)
+		floating point
+			float (4)
+			double (8)
+			long double (16)
+	Derived
+		arrays
+		pointers
+	User defined
+		struct
+		union
+		enum
+    
+variables
+
+operators
+	arithmetic + - * / %
+	assignment = 
+	compound assignment += -= *= /= %= &= |= ^= <<= >>=
+	relational == != <= >= < >        
+	logical && || !   
+	bitwise & | ^ ~ 
+	shifting << >>  
+	unary ++ --  (pre , post) num++ ,num-- , ++num , --num
+	ternary (condition)?(true):(false) 
+	special sizeof() & *
+	Boolean true false
+  
+expressions C = A+B
+width num , 0 , + , - , *
+precision .
+escape sequence   ""  \  %
+//macros #define #define max(a,b) a > b ? a : b
+
+control statements
+	conditional
+		simple if (or) single state if (or) if statement
+		two state (or) if else statement
+		multi state if (or) else if ladder (or) cascaded if
+		nested if 
+	switch
+	looping
+		for 
+		while
+		do while
+    Jump statement
+		break
+		continue
+    goto 
+    return 
+    
+patterns
+number crunching -> Digit manipulation
+	separation
+		construction(MSD)
+		destruction(LSD)
+	formation
+		right side formation
+		left side formation
+Number based problems ( factors )
+Arrays basic -> int arr[10];
+function basic 
+	function declaration
+	function definition
+	function calling
+	
+	with arguments
+	without arguments
+	call(pass) by value
+	call(pass) by reference
+	return type
+	non return type
+pointers basic 
+dynamic memory allocation
+	malloc
+	calloc
+	realloc
+	free
+Array problem solving
+strings
+storage classes
+	auto
+	static
+	extern
+	register
+structures
+union 
+Enum
+
+
+Advanced 
+
+Bit manipulation and bit masking 
+Recursion
+    Direct Recursion
+        head
+        tail 
+        linear 
+        nested 
+        tree 
+    Indirect Recursion
+        head
+        tail 
+        linear 
+        nested 
+        tree 
+2D arrays and 2D strings 
+multi dimentional array 
+recurrence relation
+Time and space complexity analysis
+
+
+DSA
+--- 
+
+Data Structures 
+
+Arrays 
+strings 
+linked list 
+    singly 
+    doubly 
+    singly circular 
+    doubly circular
+stack 
+queue 
+    linear 
+    circular 
+    priority 
+    double ended 
+trees and its types
+graphs 
+Hashing
+
+Algorithms:
+
+1️⃣ Sorting Algorithms
+
+Bubble Sort
+Selection Sort
+Insertion Sort
+Merge Sort
+Quick Sort
+Heap Sort
+Shell Sort
+Counting Sort
+Radix Sort
+Bucket Sort
+
+---
+
+2️⃣ Searching Algorithms
+
+Linear Search
+Binary Search
+Jump Search
+Interpolation Search
+Exponential Search
+Fibonacci Search
+Ternary Search
+
+---
+
+3️⃣ Graph Algorithms
+
+BFS & DFS (Graph Traversal)
+Dijkstra’s Algorithm
+Bellman-Ford Algorithm
+Floyd-Warshall Algorithm
+A* Algorithm (conceptual – rarely implemented in interviews)
+Union-Find (Disjoint Set)
+Tarjan’s Algorithm
+Kosaraju’s Algorithm
+Prim’s Algorithm
+Kruskal’s Algorithm
+Topological Sort
+Cycle Detection
+Bipartite Graph Check
+
+---
+
+4️⃣ Dynamic Programming (DP)
+
+Fibonacci (Memoization & Tabulation)
+Longest Common Subsequence (LCS)
+Longest Increasing Subsequence (LIS)
+Knapsack (0/1, Unbounded)
+Coin Change
+Edit Distance
+Matrix Chain Multiplication
+Subset Sum
+Rod Cutting
+DP on Trees
+Bitmask DP (Advanced)
+
+---
+
+5️⃣ Greedy Algorithms
+
+Activity Selection
+Fractional Knapsack
+Job Sequencing with Deadlines
+Huffman Coding
+Minimum Coin Change (Greedy vs DP)
+
+---
+
+6️⃣ Divide & Conquer
+
+Merge Sort
+Quick Sort
+Closest Pair of Points
+Median of Two Sorted Arrays
+Karatsuba Multiplication
+
+---
+
+7️⃣ Backtracking
+
+N-Queens
+Sudoku Solver
+Rat in a Maze
+Hamiltonian Cycle
+Knight’s Tour
+Subset and Permutation Generation
+
+---
+
+8️⃣ Number Theory (Coding Useful Only)
+
+Euclidean Algorithm (GCD, LCM)
+Sieve of Eratosthenes
+Modular Arithmetic
+Modular Exponentiation
+
+---
+
+9️⃣ Bit Manipulation
+
+Bitwise operations
+Check Power of Two
+Counting Set Bits
+XOR tricks
+Missing Number
+Single Number
+
+---
+
+🔟 String Algorithms
+
+KMP Algorithm
+Rabin-Karp Algorithm
+Boyer-Moore
+Manacher’s Algorithm (Advanced)
+Z Algorithm
+Trie (Prefix Tree)
+Longest Palindromic Substring / Subsequence
+
+---
+
+11 Tree & BST Algorithms
+
+Traversals (Inorder, Preorder, Postorder, Level Order)
+AVL Trees, Red-Black Trees (concept-based)
+Lowest Common Ancestor
+Height/Balance of tree
+Morris Traversal
+Binary Indexed Tree (Fenwick Tree)
+Segment Tree
+
+---
+
+12 Heap & Priority Queue
+
+Min Heap / Max Heap
+Heapify
+Priority Queue problems
+
+---
+
+13  Hashing
+
+HashMap, HashSet
+Collision handling concepts (Chaining, Open Addressing)
+Anagram checking
+Frequency-based problems
+
+---
+
+1️⃣4️⃣ Linked List Algorithms
+
+Reverse Linked List
+Detect cycle (Floyd’s cycle detection)
+Intersection of linked lists
+Merge 2 sorted lists
+Remove Nth node from end
+LRU Cache (LinkedHashMap implementation in Java)
+
+---
+
+1️⃣5️⃣ Standard Problem Solving Techniques
+
+Sliding Window
+Two-pointer Technique
+Prefix Sum
+Recursion
+Mo’s Algorithm (Advanced)
+Meet-in-the-Middle (Advanced)
