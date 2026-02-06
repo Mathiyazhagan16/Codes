@@ -549,6 +549,238 @@ Control Statements
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+Decision making statements (or) conditional statements 
+    
+1) if statement (or) simple if (or) single state if 
+
+    if(condition)
+    {
+        statements;
+    }
+
+2) if else statement (or) two state if 
+
+    if(condition) 
+    {
+        statements;//true
+    }
+    else
+    {
+        statements;//false
+    }
+
+3) else if ladder (or) cascaded if (or) multi state if
+
+    if(condition)
+    {
+        statements;
+    }
+    else if(condition)
+    {
+        statement;
+    }
+    else if(condition)
+    {
+        statement;
+    }
+    else if(condition)
+    {
+        statement;
+    }
+    else 
+    {
+        statements;(optional)
+    }
+
+4) Nested if
+
+    if(condition)
+    {
+        statements;
+        if(condition)
+        {
+            statements;
+        }
+    }
+    else 
+    {
+        statements;
+    }
+
+/* ============================================================
+   C PROGRAMMING – INTERVIEW / LAB PRACTICE
+   Direct conversion from your Java approach
+   No loops added, same if/else logic
+   ============================================================ */
+
+
+/* Q1: Find the greater value from the given integers */
+#include <stdio.h>
+int main() {
+    int num1, num2;
+    scanf("%d", &num1);
+    scanf("%d", &num2);
+    if (num1 > num2)
+        printf("%d", num1);
+    else
+        printf("%d", num2);
+    return 0;
+}
+
+
+/* Q2: Accept the integer and check if it is even or odd */
+#include <stdio.h>
+int main() {
+    int num1;
+    scanf("%d", &num1);
+    if (num1 % 2 == 1)
+        printf("Odd");
+    else
+        printf("Even");
+    return 0;
+}
+
+
+/* Q3: Hi / Hello / HiHello using if–else ladder */
+#include <stdio.h>
+int main() {
+    int num;
+    scanf("%d", &num);
+    if (num % 3 == 0 && num % 5 == 0)
+        printf("HiHello");
+    else if (num % 3 == 0)
+        printf("Hi");
+    else if (num % 5 == 0)
+        printf("Hello");
+    return 0;
+}
+
+
+/* Q4: Hi / Hello using two separate if statements */
+#include <stdio.h>
+int main() {
+    int num;
+    scanf("%d", &num);
+    if (num % 3 == 0)
+        printf("Hi");
+    if (num % 5 == 0)
+        printf("Hello");
+    return 0;
+}
+
+
+/* Q5: Accept three numbers and print min < mid < max */
+#include <stdio.h>
+int main() {
+    int num1, num2, num3;
+    int max = 0, min = 0, mid = 0;
+    scanf("%d", &num1);
+    scanf("%d", &num2);
+    scanf("%d", &num3);
+
+    if (num1 > num2 && num1 > num3)
+        max = num1;
+    else if (num2 > num3)
+        max = num2;
+    else
+        max = num3;
+
+    if (num1 < num2 && num1 < num3)
+        min = num1;
+    else if (num2 < num3)
+        min = num2;
+    else
+        min = num3;
+
+    mid = (num1 + num2 + num3) - (min + max);
+    printf("%d < %d < %d", min, mid, max);
+    return 0;
+}
+
+
+/* Q6: Find the greatest of four numbers */
+#include <stdio.h>
+int main() {
+    int num1, num2, num3, num4;
+    int max;
+    scanf("%d", &num1);
+    scanf("%d", &num2);
+    scanf("%d", &num3);
+    scanf("%d", &num4);
+
+    max = num1;
+    if (max < num2) max = num2;
+    if (max < num3) max = num3;
+    if (max < num4) max = num4;
+
+    printf("%d", max);
+    return 0;
+}
+
+
+/* Q7: Accept a character and display its type */
+#include <stdio.h>
+int main() {
+    char ch;
+    scanf(" %c", &ch);
+
+    if (ch >= '0' && ch <= '9')
+        printf("Digit");
+    else if (ch >= 'A' && ch <= 'Z')
+        printf("Uppercase");
+    else if (ch >= 'a' && ch <= 'z')
+        printf("Lowercase");
+    else
+        printf("Special Char");
+    return 0;
+}
+
+
+/* Q8: Check whether the given year is leap year or not */
+#include <stdio.h>
+int main() {
+    int year;
+    scanf("%d", &year);
+    if (year % 400 == 0 || (year % 4 == 0 && year % 100 != 0))
+        printf("Leap Year");
+    else
+        printf("Not a Leap Year");
+    return 0;
+}
+
+
+/* Q9: Accept DOB of two persons and find the elder one */
+#include <stdio.h>
+int main() {
+    int d1, m1, y1, d2, m2, y2;
+    scanf("%d %d %d", &d1, &m1, &y1);
+    scanf("%d %d %d", &d2, &m2, &y2);
+
+    if (y1 < y2 ||
+       (y1 == y2 && m1 < m2) ||
+       (y1 == y2 && m1 == m2 && d1 < d2))
+        printf("%d %d %d", d1, m1, y1);
+    else
+        printf("%d %d %d", d2, m2, y2);
+    return 0;
+}
+
+
+/* Q10: Accept a character and check Vowel or Consonant */
+#include <stdio.h>
+int main() {
+    char ch;
+    scanf(" %c", &ch);
+
+    if (ch=='a'||ch=='e'||ch=='i'||ch=='o'||ch=='u'||
+        ch=='A'||ch=='E'||ch=='I'||ch=='O'||ch=='U')
+        printf("Vowel");
+    else
+        printf("Consonant");
+    return 0;
+}
+
+/* ========================= END ========================= */
 
 
 
