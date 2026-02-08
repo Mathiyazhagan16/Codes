@@ -607,12 +607,6 @@ Decision making statements (or) conditional statements
         statements;
     }
 
-/* ============================================================
-   C PROGRAMMING – INTERVIEW / LAB PRACTICE
-   Direct conversion from your Java approach
-   No loops added, same if/else logic
-   ============================================================ */
-
 
 /* Q1: Find the greater value from the given integers */
 #include <stdio.h>
@@ -700,6 +694,7 @@ int main() {
 
 #include <stdio.h>
 #define Max(a , b) a > b ? a : b
+#define Min(a , b) a < b ? a : b
 int main() {
     int num1, num2, num3;
     int max = 0, min = 0, mid = 0;
@@ -713,9 +708,39 @@ int main() {
     return 0;
 }
 
+
+// for 4 values 
+
+30 40 10 20 
+10 < 20 < 30 < 40
+
+#include <stdio.h>
+#define Max(a , b) a > b ? a : b
+#define Min(a , b) a < b ? a : b
+#define swap(a , b) b = (a + b) - (a = b)
+int main() {
+    int num1, num2, num3 , num4;
+    int max = 0, min = 0, mid1 = 0, mid2 = 0;
+    scanf("%d", &num1);
+    scanf("%d", &num2);
+    scanf("%d", &num3);
+    scanf("%d", &num4);
+    max = Max((Max(num1 , num2)) , (Max(num3 , num4)));
+    min = Min((Min(num1 , num2)) , (Min(num3 , num4)));
+    mid1 = Min((Max(num1 , num2)) , (Max(num3 , num4)));
+    mid2 = Max((Min(num1 , num2)) , (Min(num3 , num4)));
+    if(mid1 > mid2)
+        swap(mid1 , mid2);
+    printf("%d < %d < %d < %d", min, mid1, mid2, max);
+    return 0;
+}
+
+
+
 /* Q6: Find the greatest of four numbers */
 #include <stdio.h>
-int main() {
+int main() 
+{
     int num1, num2, num3, num4;
     int max;
     scanf("%d", &num1);
@@ -735,10 +760,10 @@ int main() {
 
 /* Q7: Accept a character and display its type */
 #include <stdio.h>
-int main() {
+int main() 
+{
     char ch;
     scanf(" %c", &ch);
-
     if (ch >= '0' && ch <= '9')
         printf("Digit");
     else if (ch >= 'A' && ch <= 'Z')
@@ -823,10 +848,1122 @@ int main() {
     return 0;
 }
 
-/* ========================= END ========================= */
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Looping 
+
+What is Looping?
+     * Looping means executing a block of code repeatedly
+     * Used when the same task must be done multiple times
+     
+Types of Loops in C
+ * for loop
+ * while loop
+ * do-while loop
+ 
+for Loop
+    for(initialization; condition; updation) 
+    {
+        statements;
+    }
+    Entry-controlled loop
+Best when number of iterations is known
+
+while Loop
+    while(condition) 
+    {
+        statements;
+    }
+    Entry-controlled loop
+    Used when iterations are not known in advance
+    
+do-while Loop
+    do 
+    {
+        statements;
+    } while(condition);
+    Exit-controlled loop
+    Executes at least once, even if condition is false
+    
+Loop Control Statements
+    * break → exits the loop immediately
+    * continue → skips current iteration
+    * goto → jumps to labeled statement (rarely used)
+    
+Nested Loops
+    Loop inside another loop
+    for(i=1;i<=3;i++)
+    {
+        for(j=1;j<=2;j++)
+        {
+            printf("*");
+        }
+    }
+    Commonly used in patterns and matrices
+    
+Loop Execution Flow
+    * Initialization → Condition → Body → Update → Condition…
+    * Stops when condition becomes false
+    
+Infinite Loops
+    while(1) { }
+    or
+    for(;;) { }
+    Condition never becomes false
+    Used in embedded systems & servers
+
+Common Loop Errors
+    * Missing update statement
+    * Wrong condition
+    * Infinite loop
+    * Using = instead of == in condition
+Advantages
+    * Reduces code repetition
+    * Improves readability
+    * Efficient execution
+Applications
+    * Array traversal
+    * Pattern printing
+    * Searching & sorting
+    * Repetitive calculations   
 
 
 
+
+
+
+
+
+
+
+
+
+Basic Looping Algorithms
+    * Loop Execution Algorithm
+    * Loop Counter Algorithm
+    * Finite Loop Algorithm
+    * Infinite Loop Algorithm
+    * Pre-test Loop Algorithm
+    * Post-test Loop Algorithm
+    
+for Loop Based Algorithms
+    * Counting Loop Algorithm
+    * Sum of N Numbers Algorithm
+    * Factorial Using for Loop
+    * Table Generation Algorithm
+    * Power Calculation Algorithm
+    * Series Generation Using for Loop
+    
+while Loop Based Algorithms
+    * Condition-Controlled Loop Algorithm
+    * Sentinel-Controlled Loop Algorithm
+    * Reverse Number Algorithm
+    * Digit Count Algorithm
+    * Palindrome Check Algorithm
+    * Armstrong Number Algorithm
+    
+do-while Loop Based Algorithms
+    * At-Least-Once Execution Algorithm
+    * Menu-Driven Program Algorithm
+    * Input Validation Algorithm
+    * Repetitive Task Confirmation Algorithm
+    
+Nested Loop Algorithms
+    * Pattern Printing Algorithm
+    * Matrix Traversal Algorithm
+    * Multiplication Table Grid Algorithm
+    * Star Pattern Algorithms
+    * Number Pattern Algorithms
+    
+Loop Control Algorithms
+    * Loop Termination Algorithm (break)
+    * Loop Skipping Algorithm (continue)
+    * Early Exit Algorithm
+    * Conditional Jump Algorithm (goto)
+    
+Mathematical Algorithms Using Loops
+    * Prime Number Algorithm
+    * Fibonacci Series Algorithm
+    * GCD Algorithm
+    * LCM Algorithm
+    * Sum of Digits Algorithm
+    * Reverse Digits Algorithm
+
+Loop-Based Array Algorithms
+    * Array Traversal Using Loop
+    * Array Search Using Loop
+    * Array Sum Using Loop
+    * Array Copy Using Loop
+    * Array Reverse Using Loop
+    
+Loop Optimization Techniques
+    * Loop Unrolling Technique
+    * Loop Invariant Code Motion
+    * Loop Fusion Technique
+    * Loop Fission Technique
+    
+Common Loop Problem Algorithms
+    * Input Until Condition Algorithm
+    * Maximum of N Numbers Algorithm
+    * Minimum of N Numbers Algorithm
+    * Count Positive/Negative Numbers Algorithm
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Arrays 
+ 
+Definition
+    * An array is a collection of same data type elements
+    * Stored in contiguous memory locations
+    * Index starts from 0
+Declaration
+    * datatype array_name[size];
+    * Example: int a[10];
+    * Size must be positive
+Memory & Address
+    * Array elements stored continuously
+    * array_name gives base address
+    * &a[0] == a
+Arrays and Pointers
+    * Array name acts as a pointer to first element
+    * a[i] == *(a + i)
+    * sizeof(array) ≠ sizeof(pointer)
+Types of Arrays
+    * One-dimensional array
+    * Two-dimensional array
+    * Multi-dimensional array
+    * Character array (string)
+Passing Array to Function
+    * Arrays passed as pointer
+    * Size must be passed separately
+Advantages
+    * Fast access using index
+    * Simple data storage
+    * Efficient memory usage
+Limitations
+    * Fixed size
+    * No bounds checking
+    * Insertion/deletion is costly    
+
+#include<stdio.h>
+int main(void)
+{
+    int num;
+    int num1[] = {4,3,5,2,6,7,83,8,4,6,1,6,2,4534,6,4567,235,2,42,56,34,634};
+    printf("%d %d",sizeof(num),sizeof(num1) / sizeof(num1[0]));
+    return 0;
+}
+
+#include<stdio.h>
+#define M 10
+int main(void)
+{
+    int arr1[]  = {1,2,3,4,5,6}; // size of the arr is 6 -> created on compile time 
+    int arr2[10]= {1,2,3,4,5,6,7,8,9,10}; //size of the arr is 10 -> created on compile time
+    int arr3[8] = {1,2,3,4}; //size of the arr is 8 -> created on compile time
+    int arr4[2] = {1,2,3,4}; // not acceptable
+    // main.c: In function ‘main’:
+    // main.c:7:24: warning: excess elements in array initializer
+    //     7 |     int arr4[2] = {1,2,3,4}; // not acceptable
+    //       |                        ^
+    // main.c:7:24: note: (near initialization for ‘arr4’)
+    // main.c:7:26: warning: excess elements in array initializer
+    //     7 |     int arr4[2] = {1,2,3,4}; // not acceptable
+    //       |                          ^
+    // main.c:7:26: note: (near initialization for ‘arr4’)
+    int arr5[100] = {0}; // assigned 0 in all places;
+    int arr6[100] = {1}; // assigned 1 in index 0 , will assign 0 in all the remaining places
+    int arr7[100] = {1,4,10,0,13}; // first 5 places will get assigned with these numbers , remaining 10
+    int arr8[100] = {[10] = 25 , [25] = 10}; // it will assign the corresponding data in the specified position;
+    int N = 10;
+    int arr9[N]; // create array on compile time with random size and it will change the size to N on run time
+    int arr10[N] = {4,2,6,7,10};
+    // main.c:7:26: note: (near initialization for ‘arr4’)
+    // main.c:23:20: error: variable-sized object may not be initialized except with an empty initializer
+    //   23 |     int arr10[N] = {4,2,6,7,10};
+    int arr11[M] = {4,2,6,7,10}; // Macros - compile time text replacement -> M will be replaced with 10 on compile time itself
+    int arr12[5];
+    scanf("%d",arr[0]);
+    scanf("%d",arr[1]);
+    scanf("%d",arr[2]);
+    scanf("%d",arr[3]);
+    scanf("%d",arr[4]);
+    int arr13[5];
+    for(int ind = 0 ; ind < 5 ; ind++)
+    {
+        scanf("%d",arr13[ind]);
+    }
+    for(int ind = 0 ; ind < 5 ; ind++)
+    {
+        printf("%d ",arr13[ind]);
+    }
+    printf("1");
+    return 0;
+}
+
+Sample program to practice with arrays
+
+Range 
+
+create and store 100 values from 1 to 100
+
+    #include<stdio.h>
+    int main() 
+    {
+        int values[100];
+        int index;
+        for (index = 0; index < 100; index++) 
+        {
+            values[index] = index + 1;
+        }
+        for (index = 0; index < 100; index++) 
+        {
+            printf("%d ", numbers[index]);
+        }
+        return 0;
+    }
+
+create and store N values from 1 to N 
+
+    #include <stdio.h>
+    int main() 
+    {
+        int size;
+        scanf("%d", &size);
+        int values[size];
+        int index;
+        for (index = 0; index < size; index++) 
+        {
+            values[index] = index + 1;
+        }
+        for (index = 0; index < size; index++) 
+        {
+            printf("%d ", numbers[index]);
+        }
+        return 0;
+    }
+
+create an array with 100 index and store only odd numbers
+
+    #include <stdio.h>
+    int main() 
+    {
+        int oddNumbers[100];
+        int index;
+        for (index = 0; index < 100; index++) 
+        {
+            oddNumbers[index] = 2 * index + 1;
+        }
+        for (index = 0; index < 100; index++) 
+        {
+            printf("%d ", numbers[index]);
+        }
+        return 0;
+    }
+
+create an array with 100 index and store only even numbers
+
+    #include <stdio.h>
+    int main() 
+    {
+        int evenNumbers[100];
+        int index;
+        for (index = 0; index < 100; index++) 
+        {
+            evenNumbers[index] = 2 * (index + 1);
+        }
+        for (index = 0; index < 100; index++) 
+        {
+            printf("%d ", numbers[index]);
+        }
+        return 0;
+    }
+
+create an array with 50 and store multiples of 3 , 5 , 3&5 
+
+    #include <stdio.h>
+    int main() 
+    {
+        int multiples[50];
+        int count = 0;
+        int number = 1;
+        while (count < 50) 
+        {
+            if (number % 3 == 0 || number % 5 == 0) 
+            {
+                multiples[count] = number;
+                count++;
+            }
+            number++;
+        }
+        for (index = 0; index < 50; index++) 
+        {
+            printf("%d ", numbers[index]);
+        }
+        return 0;
+    }
+
+create an array to store first 25 fibonacci series 
+
+    #include <stdio.h>
+    int main() 
+    {
+        int fibonacci[25];
+        fibonacci[0] = 0;
+        fibonacci[1] = 1;
+        int index;
+        for (index = 2; index < 25; index++) 
+        {
+            fibonacci[index] = fibonacci[index - 1] + fibonacci[index - 2];
+        }
+        for (index = 0; index < 25; index++) 
+        {
+            printf("%d ", numbers[index]);
+        }
+        return 0;
+    }
+
+create and store 100 values from 100 to 1
+
+    #include <stdio.h>
+    int main() 
+    {
+        int values[100];
+        int index;
+        for (index = 0; index < 100; index++) 
+        {
+            values[index] = 100 - index;
+        }
+        for (index = 0; index < 100; index++) 
+        {
+            printf("%d ", numbers[index]);
+        }
+        return 0;
+    }
+
+create and store N values from N to 1 
+
+    #include <stdio.h>
+    int main() 
+    {
+        int size;
+        scanf("%d", &size);
+        int values[size];
+        int index;
+        for (index = 0; index < size; index++) 
+        {
+            values[index] = size - index;
+        }
+        for (index = 0; index < size; index++) 
+        {
+            printf("%d ", numbers[index]);
+        }
+        return 0;
+    }
+
+
+Operations 
+
+Shifting
+    |->right shifting
+    
+        #include <stdio.h>
+        int main() 
+        {
+            int numbers[100];
+            int arraySize;
+            scanf("%d", &arraySize);
+            int index;
+            for (index = arraySize; index > 0; index--) 
+            {
+                numbers[index] = numbers[index - 1];
+            }
+            numbers[0] = 0;
+            for (index = 0; index < arraySize; index++) 
+            {
+                printf("%d ", numbers[index]);
+            }
+            return 0;
+        }
+
+    |->left shifting
+    
+        #include <stdio.h>
+        int main() 
+        {
+            int numbers[100];
+            int arraySize;
+            scanf("%d", &arraySize);
+            int index;
+            for (index = 0; index < arraySize - 1; index++) 
+            {
+                numbers[index] = numbers[index + 1];
+            }
+            arraySize--;
+            for (index = 0; index < arraySize; index++) 
+            {
+                printf("%d ", numbers[index]);
+            }
+            return 0;
+        }
+    
+Insertion (needs right shifting)
+    |-> begin
+
+        #include <stdio.h>
+        int main() 
+        {
+            int numbers[100];
+            int arraySize;
+            int newValue;
+            scanf("%d", &arraySize);
+            int index;
+            for (index = arraySize; index > 0; index--) 
+            {
+                numbers[index] = numbers[index - 1];
+            }
+            scanf("%d", &newValue);
+            numbers[0] = newValue;
+            for (index = 0; index < arraySize; index++) 
+            {
+                printf("%d ", numbers[index]);
+            }
+            return 0;
+        }
+
+    |-> mid 
+
+        #include <stdio.h>
+        int main() 
+        {
+            int numbers[100];
+            int arraySize;
+            int position;
+            int newValue;
+            scanf("%d %d", &arraySize, &position);
+            int index;
+            for (index = arraySize; index > position; index--) 
+            {
+                numbers[index] = numbers[index - 1];
+            }
+            scanf("%d", &newValue);
+            numbers[position] = newValue;
+            for (index = 0; index < arraySize; index++) 
+            {
+                printf("%d ", numbers[index]);
+            }
+            return 0;
+        }
+
+    |-> end
+        #include <stdio.h>
+        int main() 
+        {
+            int numbers[100];
+            int arraySize;
+            int newValue;
+            int index;
+            scanf("%d", &arraySize);
+            for (index = 0; index < arraySize; index++) 
+            {
+                scanf("%d", &numbers[index]);
+            }
+            scanf("%d", &newValue);
+            numbers[arraySize] = newValue;
+            arraySize++;
+            for (index = 0; index < arraySize; index++) 
+            {
+                printf("%d ", numbers[index]);
+            }
+            return 0;
+        }
+
+    |-> postional
+        #include <stdio.h>
+        int main() 
+        {
+            int numbers[100];
+            int arraySize;
+            int position;
+            int newValue;
+            int index;
+            scanf("%d", &arraySize);
+            for (index = 0; index < arraySize; index++) 
+            {
+                scanf("%d", &numbers[index]);
+            }
+            scanf("%d", &position);
+            scanf("%d", &newValue);
+            for (index = arraySize; index > position; index--) 
+            {
+                numbers[index] = numbers[index - 1];
+            }
+            numbers[position] = newValue;
+            arraySize++;
+            for (index = 0; index < arraySize; index++) 
+            {
+                printf("%d ", numbers[index]);
+            }
+            return 0;
+        }
+
+Deletion (needs left shifting)
+    |-> begin
+    
+        #include <stdio.h>
+        int main() 
+        {
+            int numbers[100];
+            int arraySize;
+            scanf("%d", &arraySize);
+            int index;
+            for (index = 0; index < arraySize - 1; index++) 
+            {
+                numbers[index] = numbers[index + 1];
+            }
+            for (index = 0; index < arraySize; index++) 
+            {
+                printf("%d ", numbers[index]);
+            }
+            return 0;
+        }
+
+    |-> mid 
+
+        #include <stdio.h>
+        int main() 
+        {
+            int numbers[100];
+            int arraySize;
+            int position;
+            scanf("%d %d", &arraySize, &position);
+            int index;
+            for (index = position; index < arraySize - 1; index++) 
+            {
+                numbers[index] = numbers[index + 1];
+            }
+            for (index = 0; index < arraySize; index++) 
+            {
+                printf("%d ", numbers[index]);
+            }
+            return 0;
+        }
+
+    |-> end 
+
+        #include <stdio.h>
+        int main() 
+        {
+            int numbers[100];
+            int arraySize;
+            scanf("%d", &arraySize);
+            arraySize--;
+            return 0;
+        }
+
+    |-> postional
+        #include <stdio.h>
+        int main() 
+        {
+            int numbers[100];
+            int arraySize;
+            int position;
+            int index;
+            scanf("%d", &arraySize);
+            for (index = 0; index < arraySize; index++) 
+            {
+                scanf("%d", &numbers[index]);
+            }
+            scanf("%d", &position);
+            for (index = position; index < arraySize - 1; index++) 
+            {
+                numbers[index] = numbers[index + 1];
+            }
+            arraySize--;
+            for (index = 0; index < arraySize; index++) 
+            {
+                printf("%d ", numbers[index]);
+            }
+            return 0;
+        }
+
+rotation (needs shifting within the range)
+    |-> right rotation
+    
+        #include <stdio.h>
+        int main() 
+        {
+            int numbers[100];
+            int arraySize;
+            scanf("%d", &arraySize);
+            int lastValue = numbers[arraySize - 1];
+            int index;
+            for (index = arraySize - 1; index > 0; index--) 
+            {
+                numbers[index] = numbers[index - 1];
+            }
+            numbers[0] = lastValue;
+            for (index = 0; index < arraySize; index++) 
+            {
+                printf("%d ", numbers[index]);
+            }
+            return 0;
+        }
+    
+    |-> left rotation
+    
+        #include <stdio.h>
+        int main() 
+        {
+            int numbers[100];
+            int arraySize;
+            scanf("%d", &arraySize);
+            int firstValue = numbers[0];
+            int index;
+            for (index = 0; index < arraySize - 1; index++) 
+            {
+                numbers[index] = numbers[index + 1];
+            }
+            numbers[arraySize - 1] = firstValue;
+            for (index = 0; index < arraySize; index++) 
+            {
+                printf("%d ", numbers[index]);
+            }
+            return 0;
+        }
+
+Searching
+    |-> linear search -> 11 (O(N))
+
+        iterate through the array from index 0 t0 size-1 or till the search element
+        
+        1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17
+        
+        <>                         |-> 1
+        <->                        |-> 2
+        <--->                      |-> 3     
+        <----->                    |-> 4       
+        <------->                  |-> 5         
+        <--------->                |-> 6           
+        <----------->              |-> 7             
+        <------------->            |-> 8               
+        <--------------->          |-> 9                 
+        <------------------>       |-> 10                    
+        <--------------------->    |-> 11 
+
+        #include <stdio.h>
+        int main() 
+        {
+            int numbers[100];
+            int arraySize;
+            int searchValue;
+            scanf("%d", &arraySize);
+            int index;
+            for (index = 0; index < arraySize; index++) 
+            {
+                if (numbers[index] == searchValue) 
+                {
+                    break;
+                }
+            }
+            if( index == arraySize )
+                printf("Element not found");
+            else 
+                printf("Found");
+            return 0;
+        }
+
+    |-> Binary search -> 11 (log2(N))
+
+        if the datas are in sorted order divide the range by 2 to reduce the index count for searching on each cycles 
+
+        1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17
+        <---------------^-----------------------> 9
+                          <---------^-----------> 13
+                          <---^-->                11
+
+        #include <stdio.h>
+        int main() {
+            int numbers[100];
+            int arraySize;
+            int searchValue;
+            scanf("%d", &arraySize);
+            int low = 0;
+            int high = arraySize - 1;
+            int middle;
+            while (low <= high) 
+            {
+                middle = (low + high) / 2;
+                if (numbers[middle] == searchValue) 
+                {
+                    printf("Element Found");
+                    break;
+                } 
+                else if (numbers[middle] < searchValue) 
+                {
+                    low = middle + 1;
+                } 
+                else 
+                {
+                    high = middle - 1;
+                }
+            }
+            return 0;
+        }
+
+    |-> Jump search -> 11 
+
+        take a sqrt and check for the window that contains the element then appy linear search 
+        
+        1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 -> take sqrt of 17 -> 4
+        
+        window size = 4 
+        
+        1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17
+              4 
+                      8 
+                                12
+        
+                      8         12 -> search between 8 to 12
+                      
+        #include <stdio.h>
+        #include <math.h>
+        int main() 
+        {
+            int numbers[100];
+            int arraySize;
+            int searchValue;
+            int index;
+            scanf("%d", &arraySize);
+            for (index = 0; index < arraySize; index++) 
+            {
+                scanf("%d", &numbers[index]);
+            }
+            scanf("%d", &searchValue);
+            int stepSize = sqrt(arraySize);
+            int previousIndex = 0;
+            while (numbers[(stepSize < arraySize ? stepSize : arraySize) - 1] < searchValue) 
+            {
+                previousIndex = stepSize;
+                stepSize += sqrt(arraySize);
+                if (previousIndex >= arraySize) 
+                {
+                    printf("Element not found");
+                    return 0;
+                }
+            }
+            for (index = previousIndex; index < stepSize && index < arraySize; index++) 
+            {
+                if (numbers[index] == searchValue) 
+                {
+                    printf("Element found at position %d", index);
+                    return 0;
+                }
+            }
+            printf("Element not found");
+            return 0;
+        }
+
+
+Sorting
+    |-> bubble sort 
+    
+        #include <stdio.h>
+        int main() 
+        {
+            int numbers[100];
+            int arraySize;
+            scanf("%d", &arraySize);
+            int outerIndex, innerIndex, tempValue;
+            for (outerIndex = 0; outerIndex < arraySize - 1; outerIndex++) 
+            {
+                for (innerIndex = 0; innerIndex < arraySize - outerIndex - 1; innerIndex++) 
+                {
+                    if (numbers[innerIndex] > numbers[innerIndex + 1]) 
+                    {
+                        tempValue = numbers[innerIndex];
+                        numbers[innerIndex] = numbers[innerIndex + 1];
+                        numbers[innerIndex + 1] = tempValue;
+                    }
+                }
+            }
+            for (index = 0; index < arraySize; index++) 
+            {
+                printf("%d ", numbers[index]);
+            }
+            return 0;
+        }
+    
+    |-> selection sort 
+
+        #include <stdio.h>
+        int main() 
+        {
+            int numbers[100];
+            int arraySize;
+            scanf("%d", &arraySize);
+            int currentIndex, searchIndex, minimumIndex, tempValue;
+            for (currentIndex = 0; currentIndex < arraySize - 1; currentIndex++) 
+            {
+                minimumIndex = currentIndex;
+                for (searchIndex = currentIndex + 1; searchIndex < arraySize; searchIndex++) 
+                {
+                    if (numbers[searchIndex] < numbers[minimumIndex]) 
+                    {
+                        minimumIndex = searchIndex;
+                    }
+                }
+                tempValue = numbers[currentIndex];
+                numbers[currentIndex] = numbers[minimumIndex];
+                numbers[minimumIndex] = tempValue;
+            }
+            for (index = 0; index < arraySize; index++) 
+            {
+                printf("%d ", numbers[index]);
+            }
+            return 0;
+        }
+
+    |-> insertion sort 
+
+        #include <stdio.h>
+        int main() 
+        {
+            int numbers[100];
+            int arraySize;
+            scanf("%d", &arraySize);
+            int currentIndex, previousIndex, keyValue;
+            for (currentIndex = 1; currentIndex < arraySize; currentIndex++) 
+            {
+                keyValue = numbers[currentIndex];
+                previousIndex = currentIndex - 1;
+                while (previousIndex >= 0 && numbers[previousIndex] > keyValue) 
+                {
+                    numbers[previousIndex + 1] = numbers[previousIndex];
+                    previousIndex--;
+                }
+                numbers[previousIndex + 1] = keyValue;
+            }
+            for (index = 0; index < arraySize; index++) 
+            {
+                printf("%d ", numbers[index]);
+            }
+            return 0;
+        }
+
+    |-> quick sort 
+
+        #include <stdio.h>
+        int partition(int numbers[], int startIndex, int endIndex) 
+        {
+            int pivotValue = numbers[endIndex];
+            int smallerIndex = startIndex - 1;
+            int currentIndex, tempValue;
+            for (currentIndex = startIndex; currentIndex < endIndex; currentIndex++) 
+            {
+                if (numbers[currentIndex] < pivotValue) 
+                {
+                    smallerIndex++;
+                    tempValue = numbers[smallerIndex];
+                    numbers[smallerIndex] = numbers[currentIndex];
+                    numbers[currentIndex] = tempValue;
+                }
+            }
+            tempValue = numbers[smallerIndex + 1];
+            numbers[smallerIndex + 1] = numbers[endIndex];
+            numbers[endIndex] = tempValue;
+            return smallerIndex + 1;
+        }
+        
+        void quickSort(int numbers[], int startIndex, int endIndex) 
+        {
+            if (startIndex < endIndex) 
+            {
+                int partitionIndex = partition(numbers, startIndex, endIndex);
+                quickSort(numbers, startIndex, partitionIndex - 1);
+                quickSort(numbers, partitionIndex + 1, endIndex);
+            }
+        }
+        
+        int main() 
+        {
+            int numbers[100];
+            int arraySize;
+            scanf("%d", &arraySize);
+            quickSort(numbers, 0, arraySize - 1);
+            for (index = 0; index < arraySize; index++) 
+            {
+                printf("%d ", numbers[index]);
+            }
+            return 0;
+        }
+
+
+    |-> merge sort 
+
+        #include <stdio.h>
+        void merge(int numbers[], int leftIndex, int middleIndex, int rightIndex) 
+        {
+            int leftSize = middleIndex - leftIndex + 1;
+            int rightSize = rightIndex - middleIndex;
+            int leftArray[leftSize];
+            int rightArray[rightSize];
+            int leftCounter, rightCounter, mergeCounter;
+            for (leftCounter = 0; leftCounter < leftSize; leftCounter++) 
+            {
+                leftArray[leftCounter] = numbers[leftIndex + leftCounter];
+            }
+            for (rightCounter = 0; rightCounter < rightSize; rightCounter++) 
+            {
+                rightArray[rightCounter] = numbers[middleIndex + 1 + rightCounter];
+            }
+            leftCounter = 0;
+            rightCounter = 0;
+            mergeCounter = leftIndex;
+            while (leftCounter < leftSize && rightCounter < rightSize) 
+            {
+                if (leftArray[leftCounter] <= rightArray[rightCounter]) 
+                {
+                    numbers[mergeCounter++] = leftArray[leftCounter++];
+                } 
+                else 
+                {
+                    numbers[mergeCounter++] = rightArray[rightCounter++];
+                }
+            }
+            while (leftCounter < leftSize) 
+            {
+                numbers[mergeCounter++] = leftArray[leftCounter++];
+            }
+            while (rightCounter < rightSize) 
+            {
+                numbers[mergeCounter++] = rightArray[rightCounter++];
+            }
+        }
+        
+        void mergeSort(int numbers[], int leftIndex, int rightIndex) 
+        {
+            if (leftIndex < rightIndex) 
+            {
+                int middleIndex = (leftIndex + rightIndex) / 2;
+                mergeSort(numbers, leftIndex, middleIndex);
+                mergeSort(numbers, middleIndex + 1, rightIndex);
+                merge(numbers, leftIndex, middleIndex, rightIndex);
+            }
+        }
+        
+        int main() 
+        {
+            int numbers[100];
+            int arraySize;
+            scanf("%d", &arraySize);
+            mergeSort(numbers, 0, arraySize - 1);
+            for (index = 0; index < arraySize; index++) 
+            {
+                printf("%d ", numbers[index]);
+            }
+            return 0;
+        }
+
+
+Subconcepts 
+    |->Subarray 
+    |->Subsequence 
+    |->Subset 
+
+Algorithms and accesing approaches 
+Examples.,
+    |->sliding window 
+    |->two pointer
+    |->kadane's algorithm 
+    |->moore voting algorithm 
+
+
+
+Basic Array Algorithms
+    * Array Traversal Algorithm
+    * Array Insertion Algorithm
+    * Array Deletion Algorithm
+    * Array Update Algorithm
+    * Array Copy Algorithm
+    * Array Merge Algorithm
+    * Array Reverse Algorithm
+    * Array Rotation Algorithm
+    
+Searching Algorithms on Arrays
+    * Linear Search
+    * Binary Search
+    * Jump Search
+    * Interpolation Search
+    * Exponential Search
+    * Ternary Search
+    * Fibonacci Search
+    
+Sorting Algorithms on Arrays
+    * Bubble Sort
+    * Selection Sort
+    * Insertion Sort
+    * Merge Sort
+    * Quick Sort
+    * Heap Sort
+    * Shell Sort
+    * Counting Sort
+    * Radix Sort
+    * Bucket Sort
+    * Tim Sort
+    
+Subarray & Range Algorithms
+    * Maximum Subarray Sum (Kadane’s Algorithm)
+    * Minimum Subarray Sum
+    * Subarray with Given Sum
+    * Longest Subarray with Sum K
+    * Shortest Subarray with Sum ≥ K
+    * Sliding Window Algorithm
+    * Prefix Sum Algorithm
+    
+Array Rearrangement Algorithms
+    * Rearrange Array Alternately
+    * Segregate Even and Odd Elements
+    * Segregate 0s, 1s and 2s (Dutch National Flag Algorithm)
+    * Move All Zeros to End
+    * Rearrange Array by Sign
+    * Wave Array Algorithm
+    
+Duplicate & Frequency Algorithms
+    * Find Duplicate Elements in Array
+    * Remove Duplicates from Sorted Array
+    * Count Frequencies of Elements
+    * Majority Element Algorithm
+    * Moore’s Voting Algorithm
+    
+Order Statistics & Optimization
+    * Find Maximum and Minimum in Array
+    * Kth Largest Element Algorithm
+    * Kth Smallest Element Algorithm
+    * Median of Array
+    * Two Sum Algorithm
+    * Three Sum Algorithm
+    
+Array Mathematical Algorithms
+    * Product of Array Except Self
+    * Maximum Product Subarray
+    * Equilibrium Index Algorithm
+    * Rain Water Trapping Algorithm
+    * Stock Buy and Sell Algorithm
+    
+Matrix / 2D Array Algorithms
+    * Matrix Traversal Algorithm
+    * Matrix Transpose Algorithm
+    * Spiral Matrix Traversal
+    * Rotate Matrix Algorithm
+    * Search in Sorted Matrix
+    
+Advanced / Interview-Level Array Algorithms
+    * Boyer–Moore Majority Vote Algorithm
+    * Kadane’s Algorithm
+    * Dutch National Flag Algorithm
+    * Prefix XOR Algorithm
+    * Difference Array Technique
 
 
 
